@@ -6,11 +6,11 @@ class Config (object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 class ProductionConfig(Config):
-    SQLALCHEMY_DATABASE_URI =  os.environ.get('DATABASE_URL')
+    SQLALCHEMY_DATABASE_URI =  'sqlite:///'+os.path.join(basedir, 'db.sqlite')
 
 class DevelopmentConfig(Config):
      DEBUG = True
-     SQLALCHEMY_DATABASE_URI =  os.environ.get('DEV_DATABASE_URL')
+   SQLALCHEMY_DATABASE_URI =  'sqlite:///'+os.path.join(basedir, 'db.sqlite')
      SQLALCHEMY_ECHO = False
 
 class TestingConfig(Config):

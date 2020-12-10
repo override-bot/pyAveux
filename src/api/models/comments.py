@@ -4,11 +4,11 @@ from marshmallow import fields
 
 class Comments(db.Model):
     __tablename__ = 'comments'
-    id = db.Column(db.integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.string(100))
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(100))
     time = db.Column(db.DateTime, server_default=db.func.now())
     comment = db.Column(db.Text)
-    post_id = db.Column(db.integer, db.ForeignKey('posts.id'))
+    post_id = db.Column(db.Integer, db.ForeignKey('posts.id'))
 
     def __init__(self, name, time, comment, post_id=None):
         self.name = name
